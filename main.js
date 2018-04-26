@@ -9,6 +9,14 @@ window.onload = () => {
   $('#hike').on('mouseleave', () => {
     console.log('mouse left');
     $('#hover_info').fadeOut(10);
+    if ($('#hike_splash').css("display") !== 'none') $('#hike_splash').fadeOut(1000);
+  });
+  $('#hike').on('click', () => {
+    $('#hike_splash').fadeIn(300);
+    setTimeout(() => {
+      const url = "http://www.alltrails.com";
+      $(window.location).attr("href", url);
+    }, 2000);
   });
   // ski hover
   $('#ski').on('mouseover', () => {

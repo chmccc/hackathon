@@ -16,7 +16,7 @@ window.onload = () => {
     setTimeout(() => {
       const url = "http://www.alltrails.com";
       $(window.location).attr("href", url);
-    }, 2000);
+    }, 3000);
   });
   // ski hover
   $('#ski').on('mouseover', () => {

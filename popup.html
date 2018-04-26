@@ -1,17 +1,60 @@
 <!doctype html>
 <html>
   <head>
-    <script src="../jquery-3.3.1.min.js"></script>
-    <script src="https://ipinfo.io"></script>
-    <script src="https://api.mesowest.net"></script>
-    <h3>Nearest weather observations by IP geolocation using <a href="http://ipinfo.io">ipinfo.io</a></h3>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src=“https://maps.googleapis.com/maps/api/js?key=AIzaSyAezRW-aJ7KpFEPI0tx_HOdsmgvyKkkZgQ5b8022f5c6ed3bec“></script>
+    <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+<!--    <script src="https://ipinfo.io"></script>-->
+<!--    <script src="https://api.mesowest.net"></script>-->
+<!--    <h3>Nearest weather observations by IP geolocation using <a href="http://ipinfo.io">ipinfo.io</a></h3>-->
+    <link rel='stylesheet' type='text/css' href='style.css'>
   </head>
   <body>
-   <div id="mesowest">
+    <div id='unit-img'><img id='unit_img' src='img/jokemap.png'></div>
+    <div id='grid'>
+      <div>
+        <div id='logo'>
+          LOGO
+        </div>
+        <div id='current_conditions'>
+          <div id='icons'>
+            <div>&#x1F321;</div>
+            <div>&#x2614;</div>
+            <div>&#x1F605;</div>
+            <div>&#x1f325;</div>
+            <div>&#x1F4A8;</div>
+            
+          </div>
+          <div id='condition_list'>
+            <div id='temp'>condition info</div>
+            <div id='precip'>condition info</div>
+            <div id='humidity'>condition info</div>
+            <div id='cloud_cover'>condition info</div>
+            <div id='wind'>condition info</div>
+          </div>
+          
+        </div>
+      </div>
+      <div>
+        <div id='map_container'>
+          
+        </div>
+        <div id='interactive_container'>
+          <button id='hike'>hike</button>
+          <button id='ski'>ski</button>
+          <button id='hike'>???</button>
+          <button id='switch'>switch to fahrenheit</button>
+        </div>
+        <div id='hover_info'>this is some hover information</div>
+      </div>
+    </div>
+   <!-- <div id="mesowest">
      <p id="obs">Observations courtesy of the MesoWest API service.
       <button onclick="popupObs()">Get Obs</button>
      </p>
-   </div>
-   <script type="text/javascript" src="https://github.com/fairlycasual/willChromeExtension.github.io/blob/master/popupObs.js"> </script>
+   </div> -->
+   <script type="text/javascript" src="main.js"></script>
  </body>
 </html>

@@ -59,6 +59,7 @@ const renderMap = () => {
     mapTypeId: 'satellite'
   });
 
+
   var bounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(24.7433195, -124.7844079),
       new google.maps.LatLng(49.3457868, -66.9513812));
@@ -67,6 +68,7 @@ const renderMap = () => {
   var srcImage = 'https://api.wunderground.com/api/5b8022f5c6ed3bec/animatedradar/animatedsatellite/image.gif?num=5&delay=50&rad.maxlat=49.346&rad.maxlon=-66.9513&rad.minlat=24.743&rad.minlon=-124.784&rad.width=640&rad.height=480&rad.rainsnow=1&rad.reproj.automerc=1&rad.num=5&sat.maxlat=47.709&sat.maxlon=-69.263&sat.minlat=31.596&sat.minlon=-97.388&sat.width=640&sat.height=480&sat.key=sat_ir4_bottom&sat.gtt=107&sat.proj=me&sat.timelabel=0&sat.num=5';
 
   overlay = new wundergroundOverlay(bounds, srcImage, map);
+  return map;
 }
 
 /** @constructor */
@@ -136,5 +138,5 @@ wundergroundOverlay.prototype.onRemove = function() {
   this.div_ = null;
 };
 
-google.maps.event.addDomListener(window, 'load', map);
+google.maps.event.addDomListener(window, 'load', renderMap);
 popupObs()

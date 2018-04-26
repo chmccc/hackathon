@@ -61,18 +61,18 @@ $.get("https://ipinfo.io", function(response) {
         } else {relativeHumidity = 'no RH at site';}
 
         if (obs.current_observation.wind_mph !== undefined) {
-          wind = obs.current_observation.wind_mph + ', ' + obs.current_observation.wind_dir;
+          wind = obs.current_observation.wind_mph + ' mph, ' + obs.current_observation.wind_dir;
         } else {wind = 'no wind speed data at site';}
         
         if (obs.current_observation.precip_today_in !== undefined) {
-          precip = obs.current_observation.precip_today_in;
+          precip = obs.current_observation.precip_today_in + ' inches today';
         } else {precip = 'daily precip unavailable';}
 
         if (obs.current_observation.icon !== undefined) {
           cloud = obs.current_observation.icon;
         } else {cloud = 'no cloud cover data at site';}
 
-       document.getElementById('temp').innerHTML=temp;
+       document.getElementById('temp').innerHTML=temp + '°';
        document.getElementById('precip').innerHTML=precip;
        document.getElementById('humidity').innerHTML=relativeHumidity;
        document.getElementById('cloud_cover').innerHTML=cloud;
@@ -93,13 +93,13 @@ const renderMap = () => {
     center: {lat: 34.052, lng: -118.243},
     mapTypeId: 'satellite'
   });
-
+  console.log('something');
   var bounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(24.7433195, -124.7844079),
       new google.maps.LatLng(49.3457868, -66.9513812));
 
   // The photograph is courtesy of the wunderground API.
-  var srcImage = 'https://api.wunderground.com/api/5b8022f5c6ed3bec/animatedradar/animatedsatellite/image.gif?num=5&delay=50&rad.maxlat=49.346&rad.maxlon=-66.9513&rad.minlat=24.743&rad.minlon=-124.784&rad.width=640&rad.height=480&rad.rainsnow=1&rad.reproj.automerc=1&rad.num=5&sat.maxlat=47.709&sat.maxlon=-69.263&sat.minlat=31.596&sat.minlon=-97.388&sat.width=640&sat.height=480&sat.key=sat_ir4_bottom&sat.gtt=107&sat.proj=me&sat.timelabel=0&sat.num=5';
+  var srcImage = 'https://api.wunderground.com/api/5b8022f5c6ed3bec/animatedradar/animatedsatellite/image.gif?num=5&delay=50&rad.maxlat=49.346&rad.maxlon=-36.9513&rad.minlat=24.743&rad.minlon=-124.784&rad.width=640&rad.height=480&rad.rainsnow=1&rad.reproj.automerc=1&rad.num=5&sat.maxlat=47.709&sat.maxlon=-69.263&sat.minlat=31.596&sat.minlon=-97.388&sat.width=640&sat.height=480&sat.key=sat_ir4_bottom&sat.gtt=107&sat.proj=me&sat.timelabel=0&sat.num=5';
 
   overlay = new wundergroundOverlay(bounds, srcImage, map);
 }
@@ -171,7 +171,7 @@ wundergroundOverlay.prototype.onRemove = function() {
   this.div_ = null;
 };
 
-google.maps.event.addDomListener(window, 'load', map);
+google.maps.event.addDomListener(window, 'load', renderMap());
 popupObs();
 
 }

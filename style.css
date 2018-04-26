@@ -51,6 +51,11 @@ button:active {
 #logo {
   width: 100%;
   height: 33%;
+  background-color: lightgrey;
+}
+
+
+#logo {
   align-content: center;
   line-height: .3;
 }

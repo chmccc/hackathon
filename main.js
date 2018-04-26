@@ -42,6 +42,7 @@ $.get("https://ipinfo.io", function(response) {
       let userLon = coordArr[1];
       let userCity = response.city;
       let city = userCity.split(' ').join('_');
+      $('#logo').append(`<center><h2>Sensible Weather</h2><br>${userCity}</center>`)
       console.log(latLon === response.loc);
       var requestString = 'https://api.wunderground.com/api/5b8022f5c6ed3bec/conditions/q/CA/' + city + '.json';
 
@@ -72,7 +73,7 @@ $.get("https://ipinfo.io", function(response) {
           cloud = obs.current_observation.icon;
         } else {cloud = 'no cloud cover data at site';}
 
-       document.getElementById('temp').innerHTML=temp + '°';
+       document.getElementById('temp').innerHTML=temp + '°' + ' Celsius';
        document.getElementById('precip').innerHTML=precip;
        document.getElementById('humidity').innerHTML=relativeHumidity;
        document.getElementById('cloud_cover').innerHTML=cloud;
